@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+</head>
+
+<body>
+    <h1>{{ title }}</h1>
+    <p>{{ selected_word }}{{ explanation }}</p>
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% for radio in form.similarWords %}
+        <div class="wordSelectRadio">
+            {{ radio }}
+        </div>
+        {% endfor %}
+        <input type="submit" value="決定" />
+    </form>
+
+</body>
+</html>
